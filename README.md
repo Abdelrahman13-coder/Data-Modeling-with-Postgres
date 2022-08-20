@@ -1,4 +1,4 @@
-# Data-Modeling-with-Postgres
+# Data-Modeling-with-Postgres <img align="left" alt="codeSTACKr | ITI" width="70px" src="https://user-images.githubusercontent.com/58150666/185762207-07c1b2b4-783e-4afd-aebc-71ea6e06c794.png"/>
 
 ### **Project Overview**
 > A startup called Sparkify wants to analyze the data they've been collecting on songs and user activity on their new music streaming app. The analytics team is particularly interested in understanding what songs users are listening to. Currently, they don't have an easy way to query their data, which resides in a directory of JSON logs on user activity on the app, as well as a directory with JSON metadata on the songs in their app.
