@@ -6,6 +6,20 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    """
+    Description: 
+        This function is responsible for:
+            - Performing ETL on song and file
+            - Extracting the data for the songs and artists tables
+            - Inserting data to the songs and artists tables
+    
+    Arguments:
+        cur: the cursor object.
+        filepath: song data file path.
+        
+    Returns:
+        None
+    """
     # open song file
     df = pd.read_json(filepath, lines = True)
 
@@ -19,6 +33,26 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    """
+    Description:
+        This function is resposible for:
+            - Performing ETL for the log data file.
+            - Filter Records by `NextSong` action.
+            - Extract Data for Time Table.
+            - Creating a dataframe containing the time data for this file by combining `column_labels` and `time_data` into a dictionary and converting this into a dataframe.
+            - Inserting records into Time Table.
+            - Extract data for the user table
+            - Inserting records into the user table
+            - Extract data for the songplay table
+            - Inserting data into the songplay table
+    
+    Arguments:
+        cur: the cursor of the object.
+        filepath: log data file path
+    
+    Returns:
+        None
+    """
     # open log file
     df = pd.read_json(filepath, lines = True)
 
@@ -61,6 +95,21 @@ def process_log_file(cur, filepath):
 
 
 def process_data(cur, conn, filepath, func):
+    """
+    Description:
+        This function is responsible for:
+            - Listing the files in a directory
+            - Executing the ingest process for each file according to the function that performs the transformation to save it to the database.
+            
+    Arguments:
+        cur: the cursor object.
+        conn: connection to the database.
+        func: function that transfroms the data and inserts it into the database.
+    
+    Returns:
+        None
+    
+    """
     # get all files matching extension from directory
     all_files = []
     for root, dirs, files in os.walk(filepath):
